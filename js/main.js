@@ -19,15 +19,14 @@ const text = "Exploring Future Technology";
 
 const typingText = document.querySelector(".hero-content h1");
 
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 let index = 0;
-
-typingText.innerHTML = "";
 
 function typeText() {
 
   if (index < text.length) {
 
-    typingText.innerHTML += text.charAt(index);
+    typingText.textContent += text.charAt(index);
 
     index++;
 
@@ -37,7 +36,12 @@ function typeText() {
 
 }
 
-typeText();
+if (prefersReducedMotion) {
+  typingText.textContent = text;
+} else {
+  typingText.textContent = "";
+  typeText();
+}
 
 
 // Reveal Animation
@@ -67,12 +71,14 @@ window.addEventListener("scroll", () => {
 
 // Initial Hidden State
 
-cards.forEach(card => {
+if (!prefersReducedMotion) {
+  cards.forEach(card => {
 
-  card.style.opacity = "0";
+    card.style.opacity = "0";
 
-  card.style.transform = "translateY(50px)";
+    card.style.transform = "translateY(50px)";
 
-  card.style.transition = "0.6s";
+    card.style.transition = "0.6s";
 
-});
+  });
+}
