@@ -15,6 +15,8 @@
 
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
   <!-- Background -->
   <div class="background-glow"></div>
 
@@ -25,21 +27,21 @@
       ANDRE TECHNOLOGIES
     </div>
 
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Projects</a>
-      <a href="#">Archive</a>
-      <a href="#">Contact</a>
+    <nav aria-label="Primary navigation">
+      <a href="#hero">Home</a>
+      <a href="#projects">Projects</a>
     </nav>
 
   </header>
+
+  <main id="main-content">
 
   <!-- Hero -->
   <section id="hero">
 
     <div class="hero-content">
 
-      <h1>
+      <h1 aria-live="polite">
         Exploring Future Technology
       </h1>
 
@@ -47,9 +49,9 @@
         Futuristic engineering and space exploration archive.
       </p>
 
-      <button>
+      <a class="button" href="#projects">
         Explore
-      </button>
+      </a>
 
     </div>
 <!-- Projects -->
@@ -82,6 +84,8 @@
 </section> 
 
   </section>
+
+  </main>
 
   <script src="js/main.js"></script>
 
